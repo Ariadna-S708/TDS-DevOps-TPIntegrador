@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title Detalle de propiedad
+    link(rel='stylesheet', href='/styles.css')
+  body
+  .dashboard-container
+
+    include ../components/sidebar.pug
+    
+    main.content
+      main.container
+        h1 Detalle de Propiedad
+        p Dirección: #{propiedad.direccion}
+        p Tipo: #{propiedad.tipo}
+        p Estado: #{propiedad.estado}
+        p Precio: $#{propiedad.precio}
+        p Descripción: #{propiedad.descripcion}
+        if propiedad.propietario
+          p Propietario: #{propiedad.propietario.nombre} #{propiedad.propietario.apellido}
+
+        .acciones-form
+            a.btn-editar(href=`/propiedades/${propiedad._id}/editar`) Editar
+            a.btn-eliminar(href=`/propiedades/${propiedad._id}/eliminar`) Eliminar
+            a.btn-cancelar(href='/propiedades') Cancelar
+            

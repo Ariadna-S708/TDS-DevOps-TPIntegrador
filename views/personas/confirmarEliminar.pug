@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Confirmar eliminación
+    link(rel='stylesheet', href='/styles.css')
+  
+  body 
+  .dashboard-container
+   
+      include ../components/sidebar.pug
+      
+      main.content
+        h1 Gestión de personal 
+
+        section.container
+            h1 ¿Estás seguro que querés eliminar a #{persona.nombre} #{persona.apellido}?
+
+            form(action=`/personas/${persona._id}/eliminar` method="POST")
+              button.btn-eliminar(type="submit") Sí, eliminar
+              a.btn-cancelar(href='/personas') Cancelar

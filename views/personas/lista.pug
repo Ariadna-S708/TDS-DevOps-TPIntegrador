@@ -1,0 +1,40 @@
+doctype html
+html
+    head
+      title Agregar nueva persona
+      link(rel='stylesheet', href='/styles.css')
+    body
+    .dashboard-container
+
+      include ../components/sidebar.pug
+      
+
+      main.content
+        main.container
+          h1 Agregar nueva persona  
+        
+          form.formulario(action="/personas" method="POST")
+            div.campo
+              label(for="nombre") Nombre:
+              input(type="text" name="nombre" id="nombre" required)
+
+            div.campo
+              label(for="apellido") Apellido:
+              input(type="text" name="apellido" id="apellido" required)
+
+            div.campo
+              label(for="mail") Email:
+              input(type="email" name="mail" id="mail" required)
+
+            div.campo
+              label(for="sector") Sector:
+              input(type="text" name="sector" id="sector" required)
+
+            div.campo
+              label(for="rol") Rol:
+              input(type="text" name="rol" id="rol" required)
+
+            .acciones-form
+              button.btn-guardar(type="submit") Agregar
+
+            a.btn-cancelar(href='/personas') Cancelar

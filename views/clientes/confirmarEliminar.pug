@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Confirmar eliminación
+    link(rel='stylesheet', href='/styles.css')
+  body
+  .dashboard-container
+
+      include ../components/sidebar.pug
+      
+
+      main.content
+        h1 Gestión de clientes
+
+        section.container
+          h1 ¿Seguro que deseas eliminar a #{cliente.nombre} #{cliente.apellido}?
+
+          form(action=`/clientes/${cliente._id}/eliminar`, method="POST")
+            button.btn-eliminar(type="submit", class="btn-eliminar") Sí, eliminar
+            a.btn-cancelar(href='/clientes') Cancelar

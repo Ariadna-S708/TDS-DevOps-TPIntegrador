@@ -1,0 +1,60 @@
+doctype html
+html
+  head
+    title Panel principal - Alquilarte
+    link(rel='stylesheet', href="/styles.css")
+    
+  body
+  .dashboard-container
+
+    include ../components/sidebar.pug
+    
+
+    main.content
+      h1 Gestión de clientes
+      p Bienvenido/a #{usuario ? usuario.usuario : 'Invitado/a'}    
+
+      .cards
+        a.card(href='/clientes')
+          h3 Total de clientes
+          p #{total}
+
+        a.card(href='/clientes/inquilinos')
+          h3 Inquilinos
+          p #{totalInquilinos}
+
+        a.card(href='/clientes/propietarios')
+          h3 Propietarios
+          p #{totalPropietarios}
+                   
+
+        //- Botón agregar cliente
+      .acciones
+        a(href='/clientes/nuevo', class='btn-agregar') Agregar nuevo cliente
+
+      form(action='/clientes/buscar', method='GET', class='buscador')
+        input(type='text', name='apellido', placeholder='Buscar por apellido...')
+        button(type='submit') Buscar
+
+
+        //- Tabla de clientes
+      table
+        thead
+          tr
+            th Nombre
+            th Apellido            
+            th Email
+            th Teléfono
+            th Tipo            
+            th Acciones
+        tbody
+          each cliente in clientes
+            tr
+              td #{cliente.nombre}
+              td #{cliente.apellido}              
+              td #{cliente.mail}
+              td #{cliente.telefono}
+              td #{cliente.tipo}              
+              td
+                a(href=`/clientes/${cliente._id}/editar`, class='btn-editar') Editar 
+                a(href=`/clientes/${cliente._id}/eliminar`, class='btn-eliminar') Eliminar

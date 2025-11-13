@@ -1,0 +1,13 @@
+.env
+NOTAS_PERSONALES.md
+node_modules/
+archivos-no-usados/
+data/
+
+usuario de acceso Admin:
+    Usuario: admin
+    Contraseña: admin123
+
+usuario con acceso Empleado:
+    Usuario: Agente 3
+    Contraseña: agente
